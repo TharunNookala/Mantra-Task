@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { setForm } from '../../store/dataSlice';
+import Modal from '../Modal/Modal';
 
 const AddForm = () => {
     const navigate= useNavigate()
@@ -20,25 +21,26 @@ const handleInputChange=(e)=>{
     }
 
   return (
-    <form className='w-screen h-screen flex flex-col items-center justify-center border bg-transparant' onSubmit={handleSubmit}> 
-    <div>
+    <Modal>
+    <form className='w-full h-full flex flex-col items-center justify-center gap-10 mx-auto ' onSubmit={handleSubmit}> 
+    <div className='grid grid-cols-2 gap-4'>
         <div className='flex items-center gap-4'>
-            <label>Name</label>
-            <input type="text" name="name" className='px-2 py-1 bg-gray-100' placeholder='name' value={formData.name} onChange={handleInputChange}/>
+            <label className='text-lg font-medium'>Name: </label>
+            <input type="text" name="name" className='p-2 bg-gray-100 rounded-lg' placeholder='name' value={formData.name} onChange={handleInputChange}/>
         </div>
         <div className='flex items-center gap-4'>
-            <label>Email</label>
-            <input type="email" name="email" className='px-2 py-1 bg-gray-100' placeholder='email' value={formData.email} onChange={handleInputChange}/>
+            <label className='text-lg font-medium'>Email: </label>
+            <input type="email" name="email" className='p-2 bg-gray-100 rounded-lg' placeholder='email' value={formData.email} onChange={handleInputChange}/>
         </div>
     </div>
-    <div>
+    <div className='grid grid-cols-2 gap-4'>
         <div className='flex items-center gap-4'>
-            <label>Phone</label>
-            <input type="text" name="phone" className='px-2 py-1 bg-gray-100' placeholder='phone' value={formData.phone} onChange={handleInputChange}/>
+            <label className='text-lg font-medium'>Phone: </label>
+            <input type="text" name="phone" className='p-2 bg-gray-100 rounded-lg' placeholder='phone' value={formData.phone} onChange={handleInputChange}/>
         </div>
         <div className='flex items-center gap-4'>
-            <label>Age</label>
-            <input type="number" name="age" className='px-2 py-1 bg-gray-100' placeholder='age' value={formData.age} onChange={handleInputChange}/>
+            <label className='text-lg font-medium'>Age: </label>
+            <input type="number" name="age" className='p-2 bg-gray-100 rounded-lg' placeholder='age' value={formData.age} onChange={handleInputChange}/>
         </div>
     </div>
 
@@ -49,6 +51,7 @@ const handleInputChange=(e)=>{
     <button type="submit" className='bg-gray-200 px-4 py-1 rounded-md'>add</button>
     </div>
     </form>
+    </Modal>
   )
 }
 
