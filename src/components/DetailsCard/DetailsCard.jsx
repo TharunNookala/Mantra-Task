@@ -24,21 +24,21 @@ const DetailsCard = ({id, name: initialName, email: initialEmail, phone:initialP
     }
   return (
     <div className='border-2 border-black min-h-[200px] rounded-lg relative flex gap-2 items-center justify-center'>
-      <div className='p-2 flex flex-col'>
+      <div className='p-2 flex flex-col gap-1'>
         {isEditing ? (
-            <input type="text" className='px-2 py-1 bg-gray-100' placeholder='name' value={editedName} onChange={(e)=>setEditedName(e.target.value)}/>
+            <input type="text" className='w-full outline-0 rounded-xl p-2 bg-[#F1F4F5]' placeholder='name' value={editedName} onChange={(e)=>setEditedName(e.target.value)}/>
         ) : <p className='text-xl font-medium'> name : {initialName}</p>}
        
        {isEditing ?
-       (<input type="email" className='px-2 py-1 bg-gray-100' placeholder='email' value={editedEmail} onChange={(e)=>setEditedEmail(e.target.value)}/>) : 
+       (<input type="email" className='w-full outline-0 rounded-xl p-2 bg-[#F1F4F5]' placeholder='email' value={editedEmail} onChange={(e)=>setEditedEmail(e.target.value)}/>) : 
        <p className='text-xl font-medium'> email : {initialEmail}</p>
        }
        {isEditing ?
-       (<input type="text" className='px-2 py-1 bg-gray-100' placeholder='phone' value={editedPhone} onChange={(e)=>setEditedPhone(e.target.value)}/>) : 
+       (<input type="text" className='w-full outline-0 rounded-xl p-2 bg-[#F1F4F5]' placeholder='phone' value={editedPhone} onChange={(e)=>setEditedPhone(e.target.value)}/>) : 
        <p className='text-xl font-medium'> phone : {initialPhone}</p>
        }
        {isEditing ?
-       (<input type="number" className='px-2 py-1 bg-gray-100' placeholder='age' value={editedAge} onChange={(e)=>setEditedAge(e.target.value)}/>) : 
+       (<input type="number" className='w-full outline-0 rounded-xl p-2 bg-[#F1F4F5]' placeholder='age' value={editedAge} onChange={(e)=>setEditedAge(e.target.value)}/>) : 
        <p className='text-xl font-medium'> age : {initialAge}</p>
        }
        

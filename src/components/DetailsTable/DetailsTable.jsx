@@ -11,16 +11,18 @@ const DetailsTable = () => {
 
   const AgeGroupArray = [{ label: '1-18', minAge: 1, maxAge: 18 },
   { label: '19-25', minAge: 19, maxAge: 25 },
-  { label: '25-45', minAge: 26, maxAge: 45 }]
+  { label: '26-45', minAge: 26, maxAge: 45 }]
 
   const filteredProfiles = profiles.filter(profile => {
     if (typeof searchQuery === 'string') {
       return (
         profile.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        profile.email.toLowerCase().includes(searchQuery.toLowerCase())
-      );
+        profile.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        profile.phone.includes(searchQuery) ||
+        profile.age.includes(searchQuery)
+      )
     }
-    return false; 
+    return false;
   });
  
   const sortedProfiles = filteredProfiles.slice().sort((a, b) => {
